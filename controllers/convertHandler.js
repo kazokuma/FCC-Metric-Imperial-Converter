@@ -18,6 +18,7 @@ function ConvertHandler() {
     if(result == '') {                      //This is the case when no number is given, just convert the number to "1".
       result = "1";
     }
+    result =this.initNumberConverter(result);  // Using the attached function initNumberConverter to fixed value for conversion
     return result;
   };
   
@@ -53,25 +54,25 @@ function ConvertHandler() {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    var result = this.initNumberConverter(initNum);  // Using the attached function initNumberConverter to fixed value for conversion
+    var result;
     switch (initUnit.toUpperCase()) {
       case "GAL": 
-        result = result * galToL;
+        result = initNum * galToL;
         break;
       case "LBS":
-        result = result * lbsToKg;
+        result = initNum * lbsToKg;
         break;
       case "MI":
-        result = result * miToKm;
+        result = initNum * miToKm;
         break;
       case "L":
-        result = result / galToL;
+        result = initNum / galToL;
         break;
       case "KG":
-        result = result / lbsToKg;
+        result = initNum / lbsToKg;
         break;
       case "KM":
-        result = result / miToKm;
+        result = initNum / miToKm;
         break;
       default:
         result = "";
